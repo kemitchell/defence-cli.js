@@ -12,8 +12,8 @@ var options = docopt.docopt(usage, { version: meta.version })
 var infoStrings = [ ]
 if (options['--no-info']) {
   infoStrings.push('') }
-if (options['LIST']) {
-  infoStrings
+if (options['--info']) {
+  options['--info']
     .split(',')
     .forEach(function(infoString) {
       infoStrings.push(infoString) }) }
@@ -25,7 +25,7 @@ var file = options['<file>']
   .on('data', function(buffer) {
     bufferedInput += buffer.toString() })
   .on('end', function() {
-    process.stdout.write(
+    console.log(
       require('defence')(
         bufferedInput,
         ( infoStrings.length > 0 ? infoStrings : undefined ))) })

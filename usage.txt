@@ -6,8 +6,8 @@ Usage:
   defence -v | --version
 
 Options:
-  -n, --no-info           Include fenced code without info strings.
-  -i LIST, --labels LIST  Include fenced code with given info strings.
-  -h, --help              Show this screen.
-  -v, --version           Show version.
+  -n, --no-info         Include fenced code without info strings.
+  -i LIST, --info LIST  Include fenced code with given info strings.
+  -h, --help            Show this screen.
+  -v, --version         Show version.
 

@@ -11,5 +11,12 @@
     "docopt": "^0.6.2"
   },
   "license": "MIT",
-  "repository": "kemitchell/defence-cli.js"
+  "repository": "kemitchell/defence-cli.js",
+  "devDependencies": {
+    "glob": "^5.0.14",
+    "tape": "^4.0.1"
+  },
+  "scripts": {
+    "test": "tape test.js"
+  }
 }
