@@ -10,6 +10,13 @@
     "defence": "^1.0.0",
     "docopt": "^0.6.2"
   },
+  "keywords": [
+    "commonmark",
+    "extract",
+    "literate",
+    "markdown",
+    "testing"
+  ],
   "license": "MIT",
   "repository": "kemitchell/defence-cli.js",
   "devDependencies": {
