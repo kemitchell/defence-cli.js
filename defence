@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+var docopt = require('docopt')
+var fs = require('fs')
+var meta = require('./package')
+var path = require('path')
+var usage = fs.readFileSync(path.join(__dirname, 'usage.txt'))
+  .toString()
+  .trim()
+
+var options = docopt.docopt(usage, { version: meta.version })
+
+var infoStrings = [ ]
+if (options['--no-info']) {
+  infoStrings.push('') }
+if (options['LIST']) {
+  infoStrings
+    .split(',')
+    .forEach(function(infoString) {
+      infoStrings.push(infoString) }) }
+
+var bufferedInput = ''
+var file = options['<file>']
+
+;(file ? fs.createReadStream(file) : process.stdin )
+  .on('data', function(buffer) {
+    bufferedInput += buffer.toString() })
+  .on('end', function() {
+    process.stdout.write(
+      require('defence')(
+        bufferedInput,
+        ( infoStrings.length > 0 ? infoStrings : undefined ))) })

@@ -1,0 +1,13 @@
+Extract fenced code from CommonMark documents.
+
+Usage:
+  defence [<file>] [options]
+  defence -h | --help
+  defence -v | --version
+
+Options:
+  -n, --no-info           Include fenced code without info strings.
+  -i LIST, --labels LIST  Include fenced code with given info strings.
+  -h, --help              Show this screen.
+  -v, --version           Show version.
+
