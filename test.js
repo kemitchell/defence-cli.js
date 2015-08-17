@@ -17,7 +17,7 @@ tape('JavaScript only', function(test) {
           [ './defence' ]
             .concat(flags)
             .concat(markdown)
-            .join(' ')) 
+            .join(' '))
           .toString(),
         output,
         path.basename(outputFile, '.output')) })
