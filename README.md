@@ -18,7 +18,7 @@ Along with [assert](https://nodejs.org/api/assert.html) and [replace-require-sel
 }
 ```
 
-This can be used to write a very terse test suite into the README for a package. [boolean-json-cnf](https://github.com/kemitchell/boolean-json-cnf.js) is an example.
+[boolean-json-cnf](https://github.com/kemitchell/boolean-json-cnf.js) is an example.
 
 Without a file argument, read from standard input:
 
