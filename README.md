@@ -8,6 +8,16 @@ Filter a README file, retaining fenced code blocks with JavaScript code, piping 
 $ defence --info javascript,js README.md | node
 ```
 
+Along with [assert](https://nodejs.org/api/assert.html) and [replace-require-self](https://www.npmjs.com/package/replace-require-self), this can make for very readable npm test scripts that run code examples in your README files:
+
+```json
+{
+  "scripts": {
+    "test": "defence README.md | replace-require-self | node"
+  }
+}
+```
+
 This can be used to write a very terse test suite into the README for a package. [boolean-json-cnf](https://github.com/kemitchell/boolean-json-cnf.js) is an example.
 
 Without a file argument, read from standard input:
