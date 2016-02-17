@@ -7,7 +7,7 @@
     "defence": "defence"
   },
   "dependencies": {
-    "defence": "^1.0.0",
+    "defence": "^1.0.5",
     "docopt": "^0.6.2"
   },
   "keywords": [
