@@ -21,9 +21,11 @@
   "repository": "kemitchell/defence-cli.js",
   "devDependencies": {
     "glob": "^5.0.14",
+    "standard": "^8.0.0",
     "tape": "^4.0.1"
   },
   "scripts": {
-    "test": "tape test.js"
+    "test": "tape test.js",
+    "lint": "standard"
   }
 }

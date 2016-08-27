@@ -4,28 +4,38 @@ var fs = require('fs')
 var meta = require('./package')
 var path = require('path')
 var usage = fs.readFileSync(path.join(__dirname, 'usage.txt'))
-  .toString()
-  .trim()
+.toString()
+.trim()
 
-var options = docopt.docopt(usage, { version: meta.version })
+var options = docopt.docopt(usage, {version: meta.version})
 
-var infoStrings = [ ]
+var infoStrings = []
 if (options['--no-info']) {
-  infoStrings.push('') }
+  infoStrings.push('')
+}
 if (options['--info']) {
   options['--info']
-    .split(',')
-    .forEach(function(infoString) {
-      infoStrings.push(infoString) }) }
+  .split(',')
+  .forEach(function (infoString) {
+    infoStrings.push(infoString)
+  })
+}
 
 var bufferedInput = ''
 var file = options['<file>']
+var input = file ? fs.createReadStream(file) : process.stdin
 
-;(file ? fs.createReadStream(file) : process.stdin )
-  .on('data', function(buffer) {
-    bufferedInput += buffer.toString() })
-  .on('end', function() {
-    console.log(
-      require('defence')(
-        bufferedInput,
-        ( infoStrings.length > 0 ? infoStrings : undefined ))) })
+input
+.on('data', function (buffer) {
+  bufferedInput += buffer.toString()
+})
+.on('end', function () {
+  console.log(
+    require('defence')(
+      bufferedInput,
+      infoStrings.length > 0
+      ? infoStrings
+      : undefined
+    )
+  )
+})
