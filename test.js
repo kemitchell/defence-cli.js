@@ -10,7 +10,7 @@ require('glob')
   .forEach(function (outputFile) {
     var flags = require('./' + outputFile.replace('.output', '.json'))
     var output = fs.readFileSync(outputFile).toString()
-    var command = ['./defence']
+    var command = ['./bin.js']
       .concat(flags)
       .concat(markdown)
       .join(' ')
