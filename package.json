@@ -1,7 +1,7 @@
 {
   "name": "defence-cli",
   "description": "command-line tool for extracting fenced code from CommonMark documents",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "bin": {
     "defence": "bin.js"
