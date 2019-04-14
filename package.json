@@ -3,7 +3,9 @@
   "description": "command-line tool for extracting fenced code from CommonMark documents",
   "version": "3.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
-  "bin": "bin.js",
+  "bin": {
+    "defence": "bin.js"
+  },
   "dependencies": {
     "defence": "^3.0.0",
     "docopt": "^0.6.2"
