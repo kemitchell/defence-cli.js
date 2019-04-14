@@ -1,24 +1,25 @@
-var exec = require('child_process').execSync
+var exec = require('child_process').exec
+var assert = require('assert')
 var fs = require('fs')
 var path = require('path')
-var tape = require('tape')
 
-tape('JavaScript only', function (test) {
-  var markdown = fs.realpathSync('examples/input.md')
-  require('glob')
-    .sync('examples/*.output')
-    .forEach(function (outputFile) {
-      var flags = require('./' + outputFile.replace('.output', '.json'))
-      var output = fs.readFileSync(outputFile).toString()
-      test.equal(
-        exec(
-          ['./defence']
-            .concat(flags)
-            .concat(markdown)
-            .join(' ')
-        ).toString(),
+var markdown = fs.realpathSync('examples/input.md')
+
+require('glob')
+  .sync('examples/*.output')
+  .forEach(function (outputFile) {
+    var flags = require('./' + outputFile.replace('.output', '.json'))
+    var output = fs.readFileSync(outputFile).toString()
+    var command = ['./defence']
+      .concat(flags)
+      .concat(markdown)
+      .join(' ')
+    exec(command, function (error, stdout, stderr) {
+      assert.ifError(error)
+      assert.strictEqual(
+        stdout.toString(),
         output,
-        path.basename(outputFile, '.output'))
+        path.basename(outputFile, '.output')
+      )
     })
-  test.end()
-})
+  })
